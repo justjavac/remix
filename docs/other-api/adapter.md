@@ -1,11 +1,13 @@
 ---
+
 title: "@remix-run/{adapter}"
 order: 2
+
 ---
 
 # Server Adapters
 
-Idiomatic Remix apps can generally be deployed anywhere because Remix adapt's the server's request/response to the [Web Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API). It does this through adapters. We maintain a few adapters:
+Idiomatic Remix apps can generally be deployed anywhere because Remix adapt's the server's request/response to the [Web Fetch API][developer.mozilla-1]. It does this through adapters. We maintain a few adapters:
 
 - `@remix-run/architect`
 - `@remix-run/cloudflare-pages`
@@ -22,14 +24,14 @@ If you initialized your app with `npx create-remix@latest` with something other 
 
 Each adapter has the same API. In the future we may have helpers specific to the platform you're deploying to.
 
+[developer.mozilla-1]: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+
 ## `createRequestHandler`
 
 Creates a request handler for your server to serve the app. This is the ultimate entry point of your Remix application.
 
 ```ts
-const {
-  createRequestHandler,
-} = require("@remix-run/{adapter}");
+const { createRequestHandler } = require("@remix-run/{adapter}");
 createRequestHandler({ build, getLoadContext });
 ```
 
@@ -37,9 +39,7 @@ Here's a full example with express:
 
 ```ts [2-4, 11-22]
 const express = require("express");
-const {
-  createRequestHandler,
-} = require("@remix-run/express");
+const { createRequestHandler } = require("@remix-run/express");
 
 const app = express();
 
@@ -64,9 +64,7 @@ app.all(
 Here's an example with Architect (AWS):
 
 ```ts
-const {
-  createRequestHandler,
-} = require("@remix-run/architect");
+const { createRequestHandler } = require("@remix-run/architect");
 exports.handler = createRequestHandler({
   build: require("./build"),
 });
@@ -75,9 +73,7 @@ exports.handler = createRequestHandler({
 Here's an example with Vercel:
 
 ```ts
-const {
-  createRequestHandler,
-} = require("@remix-run/vercel");
+const { createRequestHandler } = require("@remix-run/vercel");
 module.exports = createRequestHandler({
   build: require("./build"),
 });
@@ -87,9 +83,7 @@ Here's an example with Netlify:
 
 ```ts
 const path = require("path");
-const {
-  createRequestHandler,
-} = require("@remix-run/netlify");
+const { createRequestHandler } = require("@remix-run/netlify");
 
 const BUILD_DIR = path.join(process.cwd(), "netlify");
 
@@ -161,9 +155,7 @@ addEventListener("fetch", (event) => {
       );
     }
 
-    event.respondWith(
-      new Response("Internal Error", { status: 500 })
-    );
+    event.respondWith(new Response("Internal Error", { status: 500 }));
   }
 });
 ```

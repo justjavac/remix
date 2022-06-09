@@ -1,6 +1,6 @@
 ---
-title: Web Fetch API
----
+
+## title: Web Fetch API
 
 # Web Fetch API
 
@@ -15,9 +15,7 @@ const res = await fetch(url);
 That `res` is an instance of `Response`. And you can make a response yourself:
 
 ```js
-const res = new Response(
-  JSON.stringify({ hello: "there" })
-);
+const res = new Response(JSON.stringify({ hello: "there" }));
 const json = await res.json();
 console.log(json);
 // { hello: "there" }
@@ -27,8 +25,11 @@ Rather than pick a server-side API, Remix adopts the Web Fetch API for all http 
 
 While you can use these APIs directly in Remix, you'll typically use response helpers instead:
 
-- [json](../api/remix#json)
-- [redirect](../api/remix#redirect)
+- [json][1]
+- [redirect][2]
+
+[1]: ../api/remix#json
+[2]: ../api/remix#redirect
 
 ## Globally Available
 
@@ -36,4 +37,6 @@ Remix adds `Request`, `Response`, `Headers`, and `fetch` to your loader's global
 
 ## MDN Docs
 
-[https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+[https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API][developer.mozilla-1]
+
+[developer.mozilla-1]: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
