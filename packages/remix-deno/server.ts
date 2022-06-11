@@ -1,4 +1,4 @@
-import * as path from "https://deno.land/std@0.128.0/path/mod.ts";
+import * as path from "https://deno.land/std@0.143.0/path/mod.ts";
 import mime from "mime";
 import { createRequestHandler as createRemixRequestHandler } from "@remix-run/server-runtime";
 import type { ServerBuild } from "@remix-run/server-runtime";
