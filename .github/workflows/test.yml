@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - dev
+      - tmp-run-ci
       - release-*
     tags-ignore:
       - v*
